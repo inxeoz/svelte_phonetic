@@ -1,0 +1,14 @@
+.global_border {
+    border: black solid 2px;
+    border-radius: 0;
+}
+
+.global_font {
+    font-family: "JetBrains Mono", monospace;
+}
+
+.global_center_div {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
