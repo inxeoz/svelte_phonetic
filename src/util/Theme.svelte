@@ -1,10 +1,19 @@
+<script>
+    import Moon from '../assets/moon.svg';
+    import Sun from '../assets/sun.svg';
+</script>
+
 <div class="container">
     <!-- Toggle Switch -->
     <input type="checkbox" id="checkboxInput">
     <label for="checkboxInput" class="toggleSwitch">
     <span class="icons">
-      <span class="icon moon">🌙</span>
-      <span class="icon sun">☀️</span>
+      <span class="icon moon">
+        <img src={Moon} alt="Moon Icon" class="logo" />
+      </span>
+      <span class="icon sun">
+        <img src={Sun} alt="Sun Icon" class="logo" />
+      </span>
     </span>
         <span class="slider"></span>
     </label>
@@ -14,36 +23,30 @@
     /* Root variables for easy control */
     :root {
         --switch-width: 125px;
-        --switch-height: 45px;
+        --switch-height: 50px;
         --padding-horizontal: 10px;
         --slider-size: 40px;
-        --icon-size: 1.2rem;
+        --icon-size: 1.8rem;
 
         --bg-night: #4a4c68;
-        --bg-day: #f4cd5c;
+        --bg-day: #f2df9c;
 
-        --icon-moon-color: #b3b3cc;
-        --icon-sun-color: #000000;
-
-        --icon-sun-color-active: #ffffff;
-        --slider-color-night: #45ab30;
+        --slider-color-night: #ffffff;
         --slider-color-day: #4a4c68;
+
         --transition-speed: 0.3s;
     }
 
-    /* Container (optional) */
     .container {
         display: flex;
         align-items: center;
         justify-content: center;
     }
 
-    /* Hide the checkbox */
     #checkboxInput {
         display: none;
     }
 
-    /* Toggle Switch Base */
     .toggleSwitch {
         position: relative;
         width: var(--switch-width);
@@ -57,7 +60,6 @@
         transition: background-color var(--transition-speed) ease;
     }
 
-    /* Icons wrapper */
     .icons {
         position: relative;
         display: flex;
@@ -68,21 +70,20 @@
         z-index: 2;
     }
 
-    /* Individual icons */
     .icon {
-        font-size: var(--icon-size);
-        transition: color var(--transition-speed) ease, opacity var(--transition-speed) ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: opacity var(--transition-speed) ease;
     }
 
-    .moon {
-        color: var(--icon-moon-color);
+    .logo {
+        width: var(--icon-size);
+        height: var(--icon-size);
+        object-fit: contain;
+        transition: filter var(--transition-speed) ease, opacity var(--transition-speed) ease;
     }
 
-    .sun {
-        color: var(--icon-sun-color);
-    }
-
-    /* The moving slider circle */
     .slider {
         position: absolute;
         top: calc((var(--switch-height) - var(--slider-size)) / 2);
@@ -95,7 +96,7 @@
         transition: transform var(--transition-speed) ease, background-color var(--transition-speed) ease;
     }
 
-    /* When checkbox is checked (day mode) */
+    /* Active state */
     #checkboxInput:checked + .toggleSwitch {
         background-color: var(--bg-day);
     }
@@ -105,16 +106,18 @@
         background-color: var(--slider-color-day);
     }
 
-    #checkboxInput:not(:checked) + .toggleSwitch .sun {
+    #checkboxInput:not(:checked) + .toggleSwitch .sun .logo {
         opacity: 0.5;
+        filter: brightness(0.7);
     }
 
-    #checkboxInput:checked + .toggleSwitch .moon {
+    #checkboxInput:checked + .toggleSwitch .moon .logo {
         opacity: 0.5;
+        filter: brightness(0.7);
     }
 
-    #checkboxInput:checked + .toggleSwitch .sun {
-        color: var(--icon-sun-color-active);
+    #checkboxInput:checked + .toggleSwitch .sun .logo {
         opacity: 1;
+        filter: brightness(1);
     }
 </style>
