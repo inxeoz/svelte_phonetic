@@ -35,7 +35,7 @@
         display: flex;
         flex-direction: column;
         justify-content: start;
-        row-gap: 10px;
+        row-gap: 20px;
 
     }
 
