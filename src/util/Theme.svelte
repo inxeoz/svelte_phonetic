@@ -3,7 +3,7 @@
     import Sun from '../assets/sun.svg';
 </script>
 
-<div class="container">
+<div class="theme_main global_center_div">
     <!-- Toggle Switch -->
     <input type="checkbox" id="checkboxInput">
     <label for="checkboxInput" class="toggleSwitch">
@@ -22,7 +22,7 @@
 <style>
     /* Root variables for easy control */
     :root {
-        --switch-width: 125px;
+        --switch-width: 150px;
         --switch-height: 50px;
         --padding-horizontal: 10px;
         --slider-size: 40px;
@@ -37,11 +37,6 @@
         --transition-speed: 0.3s;
     }
 
-    .container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
 
     #checkboxInput {
         display: none;

@@ -1,20 +1,31 @@
 <script>
     import Theme from "./util/Theme.svelte";
+    import close_menu from "./assets/close_menu.svg";
+
 </script>
 
 <div class="sidebar global_border">
 
-    <div class="theme_sel">
+
+    <div class="top_bar">
         <Theme/>
 
+        <div class="menu_bar">
+            <img src={close_menu} alt="Sun Icon" class="logo" />
+        </div>
+
     </div>
+
+
+
+
+
     <div id="stories_bar" class="bar global_border global_font">
         <h2>
             Stories
-
         </h2>
-
     </div>
+
     <div id="stories_bar" class="bar global_border global_font">
 
         <h2>
@@ -22,6 +33,8 @@
 
         </h2>
     </div>
+
+
 
 </div>
 
@@ -31,7 +44,7 @@
         width: auto;
         height: 90vh;
         background: #ddb892;
-        padding: 10px 20px;
+        padding: 20px 20px;
         display: flex;
         flex-direction: column;
         justify-content: start;
@@ -48,5 +61,10 @@
         align-items: center;
         color: white;
 
+    }
+
+    .top_bar {
+        display: flex;
+        justify-content: space-between;
     }
 </style>
