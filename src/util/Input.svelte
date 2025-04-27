@@ -1,6 +1,13 @@
 <script>
 
     let normal_text = "";
+    import {fetchPhonetic} from "./fetchPhonetic";
+
+    async function convertText() {
+        const phonetic = await fetchPhonetic(normal_text);
+        console.log(phonetic)
+    }
+
 
 </script>
 
@@ -11,11 +18,14 @@
               placeholder="Enter text to convert into phonetic">
     </textarea>
 
-    <div class="convert_button global_border global_font global_center_div">
+
+    <button class="convert_button global_border global_font global_center_div"
+            on:click={() => {convertText()}}
+    >
         <h3>
             to Phonetic
         </h3>
-    </div>
+    </button>
 
 </div>
 
@@ -27,7 +37,6 @@
         flex-direction: row;
         column-gap: 20px;
     }
-
 
 
     .input_text {
@@ -43,12 +52,11 @@
     }
 
 
-
-
     .convert_button {
         width: 150px;
         height: 60px;
         background: #e26d5c;
         color: white;
+        cursor: pointer;
     }
 </style>
