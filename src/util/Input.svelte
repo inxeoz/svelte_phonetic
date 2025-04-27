@@ -2,6 +2,7 @@
 
     let normal_text = "";
     import {fetchPhonetic} from "./fetchPhonetic";
+    import {overlay} from "./store.js";
 
     async function convertText() {
         possible_state = "Converting...";
@@ -10,6 +11,11 @@
             console.log(phonetic)
 
         }catch (error) {
+            overlay.set({
+                visible: true,
+                type: 'error',
+                message: 'Something went wrong!'
+            });
             console.error(error);
         }
 
