@@ -20,17 +20,17 @@
             possible_state = "Converting...";
             const phonetic = await fetchPhonetic(normal_text);
             console.log(phonetic)
-            possible_state = "to Phonetic";
 
 
         } catch (error) {
             overlay.set({
                 visible: true,
                 type: 'error',
-                message: 'Something went wrong!'
+                message: 'Something went wrong!\n' + error.message
             });
             console.error(error);
         }
+        possible_state = "to Phonetic";
 
 
     }
