@@ -13,7 +13,7 @@
 </script>
 
 {#if $overlay.visible}
-    <div class="overlay" in:fly={{ y: -20, duration: 300 }}>
+    <div class="overlay global_center_div" in:fly={{ y: -20, duration: 300 }}>
         <div class="overlay-content {$overlay.type}">
             <button class="close-btn" on:click={closeOverlay}>×</button>
             <h2>{$overlay.type.toUpperCase()}</h2>
@@ -31,9 +31,6 @@
         height: 100%;
         background: rgba(0, 0, 0, 0.6);
         z-index: 9999;
-        display: flex;
-        align-items: center;
-        justify-content: center;
     }
 
     .overlay-content {
