@@ -8,6 +8,9 @@
     let sun_opacity =  0.5;
     let moon_opacity =   0.5;
 
+    //calling for first time , initial
+    toggleTheme($theme);
+
     function toggleTheme(pref: string) {
         if (pref === "dark") {
             moon_cir_color = "#ebe1e1";
