@@ -5,14 +5,20 @@
 
     let moon_cir_color = "";
     let sun_cir_color = "";
+    let sun_opacity =  0.5;
+    let moon_opacity =   0.5;
 
     function toggleTheme(pref: string) {
         if (pref === "dark") {
             moon_cir_color = "#ebe1e1";
             sun_cir_color = "";
+            sun_opacity = 0.5;
+            moon_opacity = 1;
         } else {
             moon_cir_color = "";
             sun_cir_color = "#123872";
+            sun_opacity = 1;
+            moon_opacity = 0.5;
         }
 
         theme.set(pref);
@@ -21,7 +27,7 @@
 
 <div
         class="theme_main global_center_div"
-        style="--moon-cir-color: {moon_cir_color}; --sun-cir-color: {sun_cir_color}"
+        style="--moon-cir-color: {moon_cir_color}; --sun-cir-color: {sun_cir_color}; --sun-opacity: {sun_opacity}; --moon-opacity: {moon_opacity}"
 >
     <div class="theme_slide_background">
         <button class="moon_btn" on:click={() => toggleTheme("dark")}>
@@ -96,7 +102,7 @@
 
     /* Button background styling and transitions for moon icon */
     .moon_btn {
-        opacity: 0.5;
+        opacity: var(--moon-opacity);
         background: var(--moon-cir-color);
         transition: background-color var(--transition-speed) ease;
     }
@@ -104,7 +110,7 @@
 
     /* Button background styling and transitions for sun icon */
     .sun_btn {
-        opacity: 0.5;
+        opacity: var(--sun-opacity);
         background: var(--sun-cir-color);
         transition: background-color var(--transition-speed) ease;
     }
@@ -121,6 +127,7 @@
     .theme_slide_background .moon_btn:active,
     .theme_slide_background .sun_btn:active {
         transform: scale(0.95);
+
     }
 
     /* Styling for light and dark themes based on `theme` store */
