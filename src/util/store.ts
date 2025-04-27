@@ -14,9 +14,43 @@ export const light_text_color = writable('#22223b');
 
 export const theme = writable('light'); //or dark
 
-
 export const overlay = writable({
     visible: false,
     type: '',      // 'error', 'warning', etc
     message: ''    // error message
 });
+
+
+
+
+//
+// // Utility function (fixed version)
+// export function syncStores<T>(source: Writable<T>, target: Writable<T>) {
+//   source.subscribe(val => target.set(val));
+// }
+//
+//
+// // Utility function (fixed version)
+// export function setValue<T>(target: Writable<T>, value: T) {
+//     target.set(value);
+// }
+
+
+export function compareWritable<T>(
+    left: Writable<T>,
+    right: Writable<T>,
+    compareFn: (a: T, b: T) => boolean = (a, b) => a === b
+): boolean {
+    let leftValue: T;
+    let rightValue: T;
+
+    const unsubLeft = left.subscribe(val => leftValue = val);
+    const unsubRight = right.subscribe(val => rightValue = val);
+
+    // Immediately unsubscribe to avoid memory leaks
+    unsubLeft();
+    unsubRight();
+
+    return compareFn(leftValue!, rightValue!);
+}
+

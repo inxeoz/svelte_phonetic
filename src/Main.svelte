@@ -11,7 +11,8 @@
         light_text_color,
         light_background_color,
         light_second_background_color,
-        theme
+        theme,
+
     } from "./util/store.js";
 
 
@@ -21,11 +22,11 @@
             document.documentElement.style.setProperty('--background-color', $dark_background_color);
             document.documentElement.style.setProperty('--sec-background-color', $dark_second_background_color);
             document.documentElement.style.setProperty('--text-color', $dark_text_color);
-        } else {
+     } else {
             document.documentElement.style.setProperty('--background-color', $light_background_color);
             document.documentElement.style.setProperty('--sec-background-color', $light_second_background_color);
             document.documentElement.style.setProperty('--text-color', $light_text_color);
-        }
+  }
     }
 </script>
 
