@@ -4,10 +4,13 @@
     import {fetchPhonetic} from "./fetchPhonetic";
 
     async function convertText() {
+        possible_state = "Converting...";
         const phonetic = await fetchPhonetic(normal_text);
         console.log(phonetic)
+        possible_state = "to Phonetic";
     }
 
+    let possible_state = "to Phonetic";
 
 </script>
 
@@ -23,7 +26,8 @@
             on:click={() => {convertText()}}
     >
         <h3>
-            to Phonetic
+            { possible_state}
+
         </h3>
     </button>
 
