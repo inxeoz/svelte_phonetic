@@ -11,15 +11,25 @@
         light_text_color,
         light_background_color,
         light_second_background_color,
-        theme,
+        themeNow, UiTheme,
 
     } from "./util/store.js";
 
+    //checking browser setting
+    const prefersDark = window.matchMedia &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches;
 
+    if (prefersDark) {
+        console.log("User prefers a dark interface");
+        themeNow.set(UiTheme.DarkTheme);
+    } else {
+        console.log("User prefers a light interface");
+        themeNow.set(UiTheme.LightTheme);
+    }
 
     //dynamic theme
     $: {
-        if ($theme === "dark") {
+        if ($themeNow === UiTheme.DarkTheme) {
             document.documentElement.style.setProperty('--background-color', $dark_background_color);
             document.documentElement.style.setProperty('--sec-background-color', $dark_second_background_color);
             document.documentElement.style.setProperty('--text-color', $dark_text_color);

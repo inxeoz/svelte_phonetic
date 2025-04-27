@@ -1,4 +1,8 @@
 import {Writable, writable} from "svelte/store";
+export enum UiTheme {
+    DarkTheme = 'dark',
+    LightTheme = 'light',
+}
 
 export const phoneticSent= writable<string[]>([]);
 export const currentPage = writable(0);
@@ -12,7 +16,7 @@ export const light_background_color = writable('#f2e9e4');
 export const light_second_background_color = writable('#ddbea9');
 export const light_text_color = writable('#22223b');
 
-export const theme = writable('dark'); //or dark
+export const themeNow = writable<UiTheme>(UiTheme.LightTheme); //or dark
 
 export const overlay = writable({
     visible: false,

@@ -1,18 +1,19 @@
 <script lang="ts">
     import Moon from '../assets/moon.svg';
     import Sun from '../assets/sun.svg';
-    import { theme } from "./store.js";
+    import {themeNow, UiTheme } from "./store.js";
 
     let moon_cir_color = "";
     let sun_cir_color = "";
     let sun_opacity =  0.5;
     let moon_opacity =   0.5;
 
-    //calling for first time , initial
-    toggleTheme($theme);
+    //calling for first time , initial, this also set opacity and style of that theme slider
+    toggleTheme($themeNow);
 
-    function toggleTheme(pref: string) {
-        if (pref === "dark") {
+    function toggleTheme(pref: UiTheme) {
+
+        if (pref === UiTheme.DarkTheme) {
             moon_cir_color = "#ebe1e1";
             sun_cir_color = "";
             sun_opacity = 0.5;
@@ -24,7 +25,7 @@
             moon_opacity = 0.5;
         }
 
-        theme.set(pref);
+        themeNow.set(pref);
     }
 </script>
 
@@ -33,11 +34,11 @@
         style="--moon-cir-color: {moon_cir_color}; --sun-cir-color: {sun_cir_color}; --sun-opacity: {sun_opacity}; --moon-opacity: {moon_opacity}"
 >
     <div class="theme_slide_background">
-        <button class="moon_btn" on:click={() => toggleTheme("dark")}>
+        <button class="moon_btn" on:click={() => toggleTheme(UiTheme.DarkTheme)}>
             <img src={Moon} alt="Moon Icon" class="logo" />
         </button>
 
-        <button class="sun_btn" on:click={() => toggleTheme("light")}>
+        <button class="sun_btn" on:click={() => toggleTheme(UiTheme.LightTheme)}>
             <img src={Sun} alt="Sun Icon" class="logo" />
         </button>
     </div>
