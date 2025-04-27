@@ -20,6 +20,7 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        background: var(--background-color);
 
     }
 

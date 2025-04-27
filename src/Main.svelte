@@ -41,6 +41,7 @@
         display: flex;
         flex-direction: row;
         padding: 10px;
+
     }
 
 </style>

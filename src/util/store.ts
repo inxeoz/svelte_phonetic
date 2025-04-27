@@ -5,8 +5,8 @@ export const currentPage : Writable<number> = writable(0);
 export const pageLength: Writable<number> = writable(0);
 
 export const dark_background_color = writable('#4a4c68');
-export const dark_second_background_color = writable('#ddb892');
-export const dark_text_color = writable('#ffffff');
+export const dark_second_background_color = writable('#9a8c98');
+export const dark_text_color = writable('#f2e9e4');
 
 export const light_background_color = writable('#f2e9e4');
 export const light_second_background_color = writable('#ddbea9');
