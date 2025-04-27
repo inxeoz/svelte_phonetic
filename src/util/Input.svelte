@@ -1,8 +1,8 @@
-<script>
+<script lang="ts">
 
     let normal_text = "";
     import {fetchPhonetic} from "./fetchPhonetic";
-    import {overlay} from "./store.js";
+    import {overlay, phoneticSent, currentPage, pageLength} from "./store.js";
 
     async function convertText() {
 
@@ -17,10 +17,16 @@
         }
 
         try {
+
             possible_state = "Converting...";
-            const phonetic = await fetchPhonetic(normal_text);
+            const phonetic = await fetchPhonetic(normal_text, "SentRes");
             console.log(phonetic.phonetic.SentRes)
 
+            phoneticSent.set(phonetic.phonetic.SentRes ? phonetic.phonetic.SentRes : [])
+            currentPage.set(0);
+            pageLength.set(
+                phonetic.phonetic.SentRes ? phonetic.phonetic.SentRes.length : 0
+            )
 
         } catch (error) {
             overlay.set({

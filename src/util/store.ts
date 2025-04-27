@@ -1,8 +1,8 @@
 import {Writable, writable} from "svelte/store";
 
-export const phoneticSent: Writable<string[]> = writable([]);
-export const currentPage : Writable<number> = writable(0);
-export const pageLength: Writable<number> = writable(0);
+export const phoneticSent= writable<string[]>([]);
+export const currentPage = writable(0);
+export const pageLength= writable(0);
 
 export const dark_background_color = writable('#4a4c68');
 export const dark_second_background_color = writable('#9a8c98');

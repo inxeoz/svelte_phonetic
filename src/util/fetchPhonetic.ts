@@ -13,7 +13,7 @@ export interface PhoneticResponse {
     error?: string;
 }
 
-export async function fetchPhonetic(text: string): Promise<PhoneticResponse> {
+export async function fetchPhonetic(text: string, operation:string): Promise<PhoneticResponse> {
     const url = "https://all-in-one-phonetic.pk9009895.workers.dev/api/convert";
 
     const myHeaders = new Headers();
@@ -21,7 +21,7 @@ export async function fetchPhonetic(text: string): Promise<PhoneticResponse> {
 
     const raw = JSON.stringify({
         text: text,
-        operation: "SentRes"
+        operation: operation
     });
 
     const requestOptions: RequestInit = {
@@ -40,9 +40,6 @@ export async function fetchPhonetic(text: string): Promise<PhoneticResponse> {
 
         const result = await response.json() as PhoneticResponse;
 
-        // Print the full result
-        console.log("Full API response:", result);
-
         return result;
 
     } catch (error) {
@@ -50,3 +47,5 @@ export async function fetchPhonetic(text: string): Promise<PhoneticResponse> {
         throw error;
     }
 }
+
+
