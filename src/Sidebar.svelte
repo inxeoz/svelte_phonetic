@@ -43,7 +43,7 @@
     .sidebar {
         width: auto;
         height: 90vh;
-        background: #ddb892;
+        background: var(--sec-background-color);
         padding: 20px 20px;
         display: flex;
         flex-direction: column;
@@ -55,11 +55,11 @@
     .bar {
         width: 300px;
         height: 50px;
-        background: #4a4c68;
+        background: var(--background-color);
         display: flex;
         justify-content: center;
         align-items: center;
-        color: white;
+        color: var(--text-color);
 
     }
 

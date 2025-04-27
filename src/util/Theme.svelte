@@ -1,20 +1,31 @@
 <script>
     import Moon from '../assets/moon.svg';
     import Sun from '../assets/sun.svg';
+    import {theme} from "./store.js";
+
+    function toggleTheme() {
+
+        if ( $theme === "light" ) {
+            theme.set("dark");
+        } else {
+            theme.set("light");
+        }
+
+    }
 </script>
 
 <div class="theme_main global_center_div">
     <!-- Toggle Switch -->
     <input type="checkbox" id="checkboxInput">
     <label for="checkboxInput" class="toggleSwitch">
-    <span class="icons">
+    <button class="icons"  on:click={() => {toggleTheme()}}>
       <span class="icon moon">
         <img src={Moon} alt="Moon Icon" class="logo" />
       </span>
       <span class="icon sun">
         <img src={Sun} alt="Sun Icon" class="logo" />
       </span>
-    </span>
+    </button>
         <span class="slider"></span>
     </label>
 </div>
