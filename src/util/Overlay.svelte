@@ -49,8 +49,8 @@
     }
 
     .overlay-content.warning {
-        border: 2px solid orange;
-        color: orange;
+        border: 2px solid #123872;
+        color: #123872;
     }
 
     /* Close button styles */

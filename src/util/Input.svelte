@@ -5,12 +5,25 @@
     import {overlay} from "./store.js";
 
     async function convertText() {
-        possible_state = "Converting...";
+
+
+        if (normal_text.trim().length === 0) {
+            overlay.set({
+                visible: true,
+                type: 'warning',
+                message: 'Please enter text to convert!'
+            });
+            return;
+        }
+
         try {
+            possible_state = "Converting...";
             const phonetic = await fetchPhonetic(normal_text);
             console.log(phonetic)
+            possible_state = "to Phonetic";
 
-        }catch (error) {
+
+        } catch (error) {
             overlay.set({
                 visible: true,
                 type: 'error',
@@ -19,7 +32,7 @@
             console.error(error);
         }
 
-        possible_state = "to Phonetic";
+
     }
 
     let possible_state = "to Phonetic";
