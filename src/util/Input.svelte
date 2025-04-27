@@ -19,7 +19,7 @@
         try {
             possible_state = "Converting...";
             const phonetic = await fetchPhonetic(normal_text);
-            console.log(phonetic)
+            console.log(phonetic.phonetic.SentRes)
 
 
         } catch (error) {

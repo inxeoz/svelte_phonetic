@@ -1,12 +1,20 @@
 
+export interface PhoneticMapItem {
+    text: string;
+    phonetic: string;
+}
+
 export interface PhoneticResponse {
     // Define your response structure here
-    phonetic?: string;
+    phonetic?: {
+        SentRes?: string[];
+        MapRes?: PhoneticMapItem[];
+    };
     error?: string;
 }
 
 export async function fetchPhonetic(text: string): Promise<PhoneticResponse> {
-    const url = "https://all-in-one-phonetic.pk900y9895.workers.dev/api/convert";
+    const url = "https://all-in-one-phonetic.pk9009895.workers.dev/api/convert";
 
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
