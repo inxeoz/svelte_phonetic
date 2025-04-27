@@ -5,8 +5,14 @@
 
     async function convertText() {
         possible_state = "Converting...";
-        const phonetic = await fetchPhonetic(normal_text);
-        console.log(phonetic)
+        try {
+            const phonetic = await fetchPhonetic(normal_text);
+            console.log(phonetic)
+
+        }catch (error) {
+            console.error(error);
+        }
+
         possible_state = "to Phonetic";
     }
 
