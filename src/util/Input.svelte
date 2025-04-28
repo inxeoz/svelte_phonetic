@@ -5,31 +5,44 @@
     import {overlay, phoneticSent, endIndex, list_of_sentences, total_index_of_sentences} from "./store.js";
 
 
-    export  async function convert_to_display_sentences() {
-        let sentLength = 15;
-        let currentSentLength = 0;
-
+    export async function convert_to_display_sentences() {
+        // Reset and initialize
+        list_of_sentences.set([]);
         let currentSent: string[] = [];
+        let currentSentLength = 0;
+        const SENTENCE_LENGTH = 15;
 
-        for (let index = 0; index < $endIndex; index++) {
+        for (const word of $phoneticSent.slice(0, $endIndex)) {
+            const wordLength = word.length;
 
-            let word: string = $phoneticSent[index];
-            if (word.length + currentSentLength < sentLength) {
-                currentSent.push(word);
-                currentSentLength = currentSentLength + word.length;
-            }else if (currentSentLength > 0) {
+            // Check if adding this word would exceed the limit
+            if (currentSentLength + wordLength > SENTENCE_LENGTH) {
                 list_of_sentences.update(current => [...current, currentSent]);
                 currentSent = [];
                 currentSentLength = 0;
-            }else {
-                break;
             }
 
+            // Add the word to current sentence
+            currentSent.push(word);
+            currentSentLength += wordLength;
+
+            // Handle exact length match
+            if (currentSentLength === SENTENCE_LENGTH) {
+                list_of_sentences.update(current => [...current, currentSent]);
+                currentSent = [];
+                currentSentLength = 0;
+            }
+        }
+
+        // Add remaining words if any
+        if (currentSent.length > 0) {
+            list_of_sentences.update(current => [...current, currentSent]);
         }
 
         total_index_of_sentences.set($list_of_sentences.length);
+        console.log($list_of_sentences);
+    }
 
-        }
 
     async function convertText() {
         if (normal_text.trim().length === 0) {
