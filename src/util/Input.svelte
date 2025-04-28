@@ -2,11 +2,34 @@
 
     let normal_text = "";
     import {fetchPhonetic} from "./fetchPhonetic";
-    import {overlay, phoneticSent, currentPage, pageLength} from "./store.js";
+    import {overlay, phoneticSent, endIndex, currentIndex, list_of_sentences} from "./store.js";
+
+
+    export  async function convert_to_display_sentences() {
+        let sentLength = 15;
+        let currentSentLength = 0;
+
+        let currentSent: string[] = [];
+
+        for (let index = 0; index < $endIndex; index++) {
+
+            let word: string = $phoneticSent[index];
+            if (word.length + currentSentLength < sentLength) {
+                currentSent.push(word);
+                currentSentLength = currentSentLength + word.length;
+            }else if (currentSentLength > 0) {
+                list_of_sentences.update(current => [...current, currentSent]);
+                currentSent = [];
+                currentSentLength = 0;
+            }else {
+                return;
+            }
+
+        }
+
+        }
 
     async function convertText() {
-
-
         if (normal_text.trim().length === 0) {
             overlay.set({
                 visible: true,
@@ -23,10 +46,10 @@
             console.log(phonetic.phonetic.SentRes)
 
             phoneticSent.set(phonetic.phonetic.SentRes ? phonetic.phonetic.SentRes : [])
-            currentPage.set(0);
-            pageLength.set(
+            endIndex.set(
                 phonetic.phonetic.SentRes ? phonetic.phonetic.SentRes.length : 0
             )
+            await convert_to_display_sentences();
 
         } catch (error) {
             overlay.set({

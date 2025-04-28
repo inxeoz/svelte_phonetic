@@ -1,20 +1,19 @@
-<script>
+<script lang="ts">
 
-    let sents = new Array(5).fill("value")
-    let words =["typesetting,"," remaining"," essentially"," unchanged."," It ","was"," popularised"," in"] ;
-
+    import {list_of_sentences} from "./store.js"
     let neutral_color = ["#dda15e", "#ddbea9", "#b8b8ff", "#83c5be", "#a3b18a", "#f4acb7", "#ffcb69", "#cebebe"];
 </script>
 
 <div class="display_main global_center_div">
 
 
-    {#each sents as value, index}
+    {#each $list_of_sentences as sent, index}
         <div class="display_sent global_center_div">
-            {#each words as value, index}
-                <div class="display_word global_center_div global_font" style="--neutral-color: {neutral_color[index % neutral_color.length]};">
+            {#each sent as word, index}
+                <div class="display_word global_center_div global_font"
+                     style="--neutral-color: {neutral_color[index % neutral_color.length]};">
                     <h3>
-                        {value}
+                        {word}
                     </h3>
 
                 </div>
