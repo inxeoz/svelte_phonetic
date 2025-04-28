@@ -1,4 +1,5 @@
 import {Writable, writable} from "svelte/store";
+import {  derived, get } from 'svelte/store';
 export enum UiTheme {
     DarkTheme = 'dark',
     LightTheme = 'light',
@@ -12,7 +13,7 @@ export const total_index_of_sentences = writable(0);
 export const currentSentIndex = writable(0);
 export const endWordIndex = writable(0);
 
-export const local_list_of_sentences = writable<string[][]>([]);
+// export const local_list_of_sentences = writable<string[][]>([]);
 export const max_visible_sentence = writable(5);
 
 export const dark_background_color = writable('#4a4c68');
@@ -64,3 +65,11 @@ export function compareWritable<T>(
 
     return compareFn(leftValue!, rightValue!);
 }
+
+
+// Derived store (auto-updates)
+export const local_list_of_sentences = derived(
+    [list_of_sentences, currentSentIndex, max_visible_sentence],
+    ([$list, $current, $max]) => $list.slice($current, $current + $max)
+);
+
