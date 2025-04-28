@@ -2,7 +2,7 @@
 
     let normal_text = "";
     import {fetchPhonetic} from "./fetchPhonetic";
-    import {overlay, phoneticSent, endIndex, currentIndex, list_of_sentences} from "./store.js";
+    import {overlay, phoneticSent, endIndex, list_of_sentences, total_index_of_sentences} from "./store.js";
 
 
     export  async function convert_to_display_sentences() {
@@ -22,10 +22,12 @@
                 currentSent = [];
                 currentSentLength = 0;
             }else {
-                return;
+                break;
             }
 
         }
+
+        total_index_of_sentences.set($list_of_sentences.length);
 
         }
 

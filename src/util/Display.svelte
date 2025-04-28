@@ -1,13 +1,25 @@
 <script lang="ts">
 
-    import {list_of_sentences} from "./store.js"
+    import {list_of_sentences, currentSentIndex, total_index_of_sentences, local_list_of_sentences, max_visible_sentence} from "./store.js"
     let neutral_color = ["#dda15e", "#ddbea9", "#b8b8ff", "#83c5be", "#a3b18a", "#f4acb7", "#ffcb69", "#cebebe"];
+
+    $: {
+        let temp_list_of_sentences: string[][] = [];
+        let max_sentence_index:number = $currentSentIndex + $max_visible_sentence;
+
+        for (let index = $currentSentIndex; index < max_sentence_index; index++) {
+            if (index < $total_index_of_sentences) {
+                temp_list_of_sentences.push($list_of_sentences[index]);
+                currentSentIndex.update(val => val + 1);
+            }
+        }
+        local_list_of_sentences.set(temp_list_of_sentences);
+    }
 </script>
 
 <div class="display_main global_center_div">
 
-
-    {#each $list_of_sentences as sent, index}
+    {#each $local_list_of_sentences as sent, index}
         <div class="display_sent global_center_div">
             {#each sent as word, index}
                 <div class="display_word global_center_div global_font"
