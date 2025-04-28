@@ -14,6 +14,8 @@
         themeNow, UiTheme,
 
     } from "./util/store.js";
+    import Resizable from "./util/Resizable.svelte";
+    import ResizablePanel from "./util/ResizablePanel.svelte";
 
     //checking browser setting
     const prefersDark = window.matchMedia &&
@@ -42,8 +44,15 @@
 </script>
 
 <div class="main global_border">
-    <Sidebar/>
-    <MainContent/>
+    <Resizable direction="horizontal">
+
+        <ResizablePanel defaultSize={250}>
+            <Sidebar/>
+        </ResizablePanel>
+
+        <MainContent/>
+    </Resizable>
+
 </div>
 <Overlay/>
 <style>
