@@ -2,6 +2,8 @@
     import Theme from "./util/Theme.svelte";
     // import close_menu from "./assets/close_menu.svg";
 
+    import box from './assets/box.svg'
+
 </script>
 
 <div class="sidebar global_border">
@@ -11,16 +13,18 @@
     </div>
 
     <div id="stories_bar" class="bar global_border global_font">
-        <h2>
+
+        <img src={box} alt="dfd" class="icons">
+        <h2 class="service_name">
             Stories
         </h2>
     </div>
 
     <div id="stories_bar" class="bar global_border global_font">
 
-        <h2>
+        <img src={box} alt="dfd" class="icons">
+        <h2 class="service_name">
             Converter
-
         </h2>
     </div>
 
@@ -29,6 +33,8 @@
 </div>
 
 <style>
+
+
 
     .sidebar {
         width: auto;
@@ -43,11 +49,11 @@
     }
 
     .bar {
-        width: 300px;
+        width: auto;
         height: 50px;
         background: var(--background-color);
         display: flex;
-        justify-content: center;
+        justify-content: space-around;
         align-items: center;
         color: var(--text-color);
         cursor: pointer;
@@ -58,22 +64,24 @@
         justify-content: space-between;
     }
 
+    .service_name {
+        display: none;
+    }
+
     /* Apply container queries to the resizable panel */
     @container (min-width: 100px) {
-        .sidebar {
-            background-color: #45ab30; /* Light background when width >= 400px */
+        .service_name {
+            display: none;
         }
     }
 
     @container (min-width: 200px) {
-        .sidebar {
-            background-color: #123872; /* Change color when width >= 600px */
+        .service_name {
+            display: contents;
         }
     }
 
     @container (min-width: 300px) {
-        .sidebar {
-            background-color: #f25757; /* Darker background when width >= 800px */
-        }
+
     }
 </style>
