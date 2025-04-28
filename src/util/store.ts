@@ -5,12 +5,14 @@ export enum UiTheme {
 }
 
 export const phoneticSent= writable<string[]>([]);
-export const currentSentIndex = writable(0);
-export const endIndex = writable(0);
+
+
 export const list_of_sentences = writable<string[][]>([])
 export const total_index_of_sentences = writable(0);
-export const local_list_of_sentences = writable<string[][]>([]);
+export const currentSentIndex = writable(0);
+export const endSentIndex = writable(0);
 
+export const local_list_of_sentences = writable<string[][]>([]);
 export const max_visible_sentence = writable(5);
 
 export const dark_background_color = writable('#4a4c68');

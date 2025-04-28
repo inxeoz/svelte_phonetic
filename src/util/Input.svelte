@@ -2,7 +2,7 @@
 
     let normal_text = "";
     import {fetchPhonetic} from "./fetchPhonetic";
-    import {overlay, phoneticSent, endIndex, list_of_sentences, total_index_of_sentences} from "./store.js";
+    import {overlay, phoneticSent, endSentIndex, list_of_sentences, total_index_of_sentences} from "./store.js";
 
 
     export async function convert_to_display_sentences() {
@@ -12,7 +12,7 @@
         let currentSentLength = 0;
         const SENTENCE_LENGTH = 15;
 
-        for (const word of $phoneticSent.slice(0, $endIndex)) {
+        for (const word of $phoneticSent.slice(0, $endSentIndex)) {
             const wordLength = word.length;
 
             // Check if adding this word would exceed the limit
@@ -61,7 +61,7 @@
             console.log(phonetic.phonetic.SentRes)
 
             phoneticSent.set(phonetic.phonetic.SentRes ? phonetic.phonetic.SentRes : [])
-            endIndex.set(
+            endSentIndex.set(
                 phonetic.phonetic.SentRes ? phonetic.phonetic.SentRes.length : 0
             )
             await convert_to_display_sentences();

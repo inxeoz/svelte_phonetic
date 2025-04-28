@@ -1,15 +1,31 @@
+
+<script lang="ts">
+    import {currentSentIndex, total_index_of_sentences} from "./store";
+
+    async function prev() {
+        if ($currentSentIndex -1 >= 0) {
+            currentSentIndex.update(val => val - 1);
+        }
+    }
+
+    async function next() {
+        if ($currentSentIndex +1  <  $total_index_of_sentences ) {
+            currentSentIndex.update(val => val + 1);
+        }
+    }
+</script>
 <div class="navigation_main global_center_div">
-    <div class="nav_button global_font global_border global_center_div" id="prev_btn">
+    <button class="nav_button global_font global_border global_center_div" id="prev_btn" on:click={()=>{prev()}}>
         <h3>
             Previous
         </h3>
-    </div>
+    </button>
 
-    <div class="nav_button global_font global_border global_center_div" id="next_btn">
+    <button class="nav_button global_font global_border global_center_div" id="next_btn" on:click={()=>{next()}}>
         <h3>
             Next
         </h3>
-    </div>
+    </button>
 </div>
 
 <style>
