@@ -4,16 +4,7 @@
     let neutral_color = ["#dda15e", "#ddbea9", "#b8b8ff", "#83c5be", "#a3b18a", "#f4acb7", "#ffcb69", "#cebebe"];
 
     $: {
-        let temp_list_of_sentences: string[][] = [];
-        let max_sentence_index:number = $currentSentIndex + $max_visible_sentence;
-
-        for (let index = $currentSentIndex; index < max_sentence_index; index++) {
-            if (index < $total_index_of_sentences) {
-                temp_list_of_sentences.push($list_of_sentences[index]);
-                currentSentIndex.update(val => val + 1);
-            }
-        }
-        local_list_of_sentences.set(temp_list_of_sentences);
+        local_list_of_sentences.set($list_of_sentences.slice($currentSentIndex, $max_visible_sentence));
     }
 </script>
 
