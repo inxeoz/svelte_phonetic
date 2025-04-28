@@ -100,7 +100,7 @@
 
     <textarea class="input_text global_border global_font global_center_div"
               bind:value={normal_text}
-              placeholder="Enter text to convert into phonetic">
+              placeholder="Enter text">
     </textarea>
 
 
@@ -119,21 +119,22 @@
 <style>
     .input_main {
         height: auto;
-        width: 100%;
+        width: auto;
         flex-direction: row;
         column-gap: 20px;
+        flex-wrap: wrap;
     }
 
 
     .input_text {
-        width: 500px;
-        height: 60px;
+        width: auto;
+        height: auto;
         background: #ddb892;
         color: #8a6060;
         text-decoration: underline;
         text-underline-offset: 10px;
         text-align: center;
-        line-height: 60px;
+
 
     }
 
