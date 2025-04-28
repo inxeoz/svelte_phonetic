@@ -11,7 +11,7 @@
 
     async function next() {
         let updated_current_sent_index= $currentSentIndex + $max_visible_sentence;
-        if (updated_current_sent_index<  $total_index_of_sentences ) {
+        if (updated_current_sent_index <  $total_index_of_sentences ) {
             currentSentIndex.set(updated_current_sent_index);
         }
     }

@@ -10,7 +10,7 @@ export const phoneticSent= writable<string[]>([]);
 export const list_of_sentences = writable<string[][]>([])
 export const total_index_of_sentences = writable(0);
 export const currentSentIndex = writable(0);
-export const endSentIndex = writable(0);
+export const endWordIndex = writable(0);
 
 export const local_list_of_sentences = writable<string[][]>([]);
 export const max_visible_sentence = writable(5);
@@ -64,4 +64,3 @@ export function compareWritable<T>(
 
     return compareFn(leftValue!, rightValue!);
 }
-

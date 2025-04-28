@@ -3,9 +3,12 @@
     import {list_of_sentences, currentSentIndex, total_index_of_sentences, local_list_of_sentences, max_visible_sentence} from "./store.js"
     let neutral_color = ["#dda15e", "#ddbea9", "#b8b8ff", "#83c5be", "#a3b18a", "#f4acb7", "#ffcb69", "#cebebe"];
 
-    $: {
-        local_list_of_sentences.set($list_of_sentences.slice($currentSentIndex, $max_visible_sentence));
-    }
+        //slice($currentSentIndex, $currentSentIndex + $max_visible_sentence) imp <---
+        $: {
+            local_list_of_sentences.set($list_of_sentences.slice($currentSentIndex, $currentSentIndex + $max_visible_sentence));
+
+            console.log("local -list", $local_list_of_sentences)
+        }
 </script>
 
 <div class="display_main global_center_div">
