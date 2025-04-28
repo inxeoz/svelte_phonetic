@@ -6,12 +6,13 @@ export enum UiTheme {
 }
 
 export const phoneticSent= writable<string[]>([]);
+export const endWordIndex = writable(0);
 
 
 export const list_of_sentences = writable<string[][]>([])
 export const total_index_of_sentences = writable(0);
 export const currentSentIndex = writable(0);
-export const endWordIndex = writable(0);
+
 export const SENTENCE_LENGTH = writable(40);
 // export const local_list_of_sentences = writable<string[][]>([]);
 export const MAX_VISIBLE_SENTENCE = writable(5);
@@ -72,4 +73,5 @@ export const local_list_of_sentences = derived(
     [list_of_sentences, currentSentIndex, MAX_VISIBLE_SENTENCE],
     ([$list, $current, $max]) => $list.slice($current, $current + $max)
 );
+
 
