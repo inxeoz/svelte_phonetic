@@ -8,11 +8,6 @@
 
     <div class="top_bar">
         <Theme/>
-
-        <div class="menu_bar">
-            <img src={close_menu} alt="Sun Icon" class="logo" />
-        </div>
-
     </div>
 
 
