@@ -5,9 +5,9 @@
     import {
         overlay,
         phoneticSent,
-        endWordIndex ,
+        endWordIndex,
         list_of_sentences,
-        total_index_of_sentences,
+        total_index_of_sentences, currentSentIndex,
     } from "./store.js";
 
 
@@ -67,10 +67,13 @@
             console.log(phonetic.phonetic.SentRes)
 
             phoneticSent.set(phonetic.phonetic.SentRes ? phonetic.phonetic.SentRes : [])
-
             endWordIndex.set(
                 phonetic.phonetic.SentRes ? phonetic.phonetic.SentRes.length : 0
             )
+            list_of_sentences.set([]);
+            total_index_of_sentences.set(0);
+            currentSentIndex.set(0);
+
 
             console.log("end index", $endWordIndex)
             await convert_to_display_sentences();
