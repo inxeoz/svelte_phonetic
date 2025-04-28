@@ -38,7 +38,7 @@
 
     .sidebar {
         width: auto;
-        height: 90vh;
+        height: 100%;
         background: var(--sec-background-color);
         padding: 20px 20px;
         display: flex;

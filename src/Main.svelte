@@ -47,7 +47,6 @@
 
 <div class="main global_border">
     <Resizable direction="horizontal">
-
 <!--        default size needed-->
         <ResizablePanel defaultSize={250}>
             <Sidebar/>
@@ -61,11 +60,10 @@
 <style>
     .main {
         width: auto;
-        height: 100%;
+        height: 90vh;
         display: flex;
         flex-direction: row;
         padding: 10px;
-
     }
 
 </style>

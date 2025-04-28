@@ -81,6 +81,8 @@
         position: relative;
         background: #f2f2f2;
         overflow: hidden;
+        height: 100%;
+        width: 100%;
     }
 
     .resize-handle {
