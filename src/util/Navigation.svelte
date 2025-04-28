@@ -50,6 +50,7 @@
         flex-direction: row;
         justify-content: space-around;
         width: 100%;
+        flex-wrap: wrap;
     }
     .nav_button {
         width: 150px;
