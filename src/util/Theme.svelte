@@ -68,16 +68,17 @@
     }
 
     .theme_slide_background {
-        width: 100%;
+        width: auto;
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: center;
         flex-direction: row;
         gap: 1rem;
         background: var(--background-color);
         padding: 0.6rem;
         border-radius: 30px;
         transition: background-color var(--transition-speed) ease;
+        flex-wrap: wrap;
     }
 
     /* Button styling */
