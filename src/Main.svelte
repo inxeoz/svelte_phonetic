@@ -45,10 +45,10 @@
     }
 </script>
 
-<div class="main global_border">
+<div class="main global_border global_center_div">
     <Resizable direction="horizontal">
 <!--        default size needed-->
-        <ResizablePanel defaultSize={250}>
+        <ResizablePanel defaultSize={300} minSize={200}>
             <Sidebar/>
         </ResizablePanel>
 
@@ -59,11 +59,15 @@
 <Overlay/>
 <style>
     .main {
-        width: auto;
-        height: 90vh;
+        width: 98vw;
+        height: 95vh;
         display: flex;
         flex-direction: row;
         padding: 10px;
+        background: var(--background-color);
+    }
+    :root {
+        background: var(--background-color);
     }
 
 </style>
