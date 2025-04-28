@@ -6,7 +6,6 @@
 
 <div class="sidebar global_border">
 
-
     <div class="top_bar">
         <Theme/>
 

@@ -3,6 +3,8 @@
     import MainContent from "./MainContent.svelte";
     import "./global.css";
     import Overlay from "./util/Overlay.svelte";
+    import fish from './assets/fish.svg'
+    import moon from './assets/moon.svg'
 
     import {
         dark_text_color,
@@ -46,7 +48,7 @@
 <div class="main global_border">
     <Resizable direction="horizontal">
 
-        <ResizablePanel defaultSize={250}>
+        <ResizablePanel>
             <Sidebar/>
         </ResizablePanel>
 

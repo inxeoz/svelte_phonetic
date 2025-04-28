@@ -1,15 +1,23 @@
-<script>
-    export let defaultSize = 300;
+<script lang="ts">
+    export let icon: string | undefined = ''; // SVG string or image URL
+    export let direction = 'horizontal';
+    export let defaultSize = undefined;
     export let minSize = 100;
     export let maxSize = 800;
-    export let direction = 'horizontal'; // 'horizontal' or 'vertical'
 
     let size = defaultSize;
     let isDragging = false;
     let startPosition = 0;
     let startSize = 0;
 
+    let panelEl;
+
     function onMouseDown(event) {
+        if (size == null) {
+            const rect = panelEl.getBoundingClientRect();
+            size = direction === 'horizontal' ? rect.width : rect.height;
+        }
+
         isDragging = true;
         startPosition = direction === 'horizontal' ? event.clientX : event.clientY;
         startSize = size;
@@ -33,8 +41,9 @@
 </script>
 
 <div
+        bind:this={panelEl}
         class="resizable-panel"
-        style="{direction === 'horizontal' ? `width: ${size}px` : `height: ${size}px`}"
+        style="{size !== undefined ? (direction === 'horizontal' ? `width: ${size}px` : `height: ${size}px`) : ''}"
 >
     <slot/>
 
@@ -44,20 +53,25 @@
             aria-label="Resize panel"
     >
         <div class="handle-icon">
-            {#if direction === 'horizontal'}
-                <svg width="8" height="24" viewBox="0 0 8 24" xmlns="http://www.w3.org/2000/svg" fill="gray">
-                    <circle cx="4" cy="4" r="2"/>
-                    <circle cx="4" cy="12" r="2"/>
-                    <circle cx="4" cy="20" r="2"/>
-                </svg>
+            {#if icon}
+                <img src={icon} alt="Resize handle icon" class="custom-icon" />
             {:else}
-                <svg width="24" height="8" viewBox="0 0 24 8" xmlns="http://www.w3.org/2000/svg" fill="gray">
-                    <circle cx="4" cy="4" r="2"/>
-                    <circle cx="12" cy="4" r="2"/>
-                    <circle cx="20" cy="4" r="2"/>
-                </svg>
+                {#if direction === 'horizontal'}
+
+                    <svg width="32px" height="96px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 4a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM15 10a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM15 16a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM9 10a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM9 16a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM9 4a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z"
+                              fill="#000000"/>
+                    </svg>
+
+                {:else}
+                    <svg width="96px" height="32px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 4a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM15 10a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM15 16a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM9 10a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM9 16a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM9 4a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z"
+                              fill="#000000"/>
+                    </svg>
+                {/if}
             {/if}
         </div>
+
     </button>
 </div>
 
@@ -69,13 +83,14 @@
     }
 
     .resize-handle {
-        all: unset; /* Reset default button styles */
+        all: unset;
         position: absolute;
         display: flex;
         align-items: center;
         justify-content: center;
         background: transparent;
-        cursor: grab; /* Default cursor */
+        cursor: grab;
+        padding: 10px;
     }
 
     .resize-handle.horizontal {
@@ -98,9 +113,12 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        padding: 40px;
     }
 
-    .handle-icon svg {
-        pointer-events: none; /* Let events pass through to the button */
+    .custom-icon {
+        width: 16px; /* You can customize the size of the custom SVG */
+        height: 16px;
+        pointer-events: none; /* Ensure that the icon doesn't block mouse events */
     }
 </style>
