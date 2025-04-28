@@ -7,6 +7,7 @@
         phoneticSent,
         endWordIndex,
         list_of_sentences,
+        SENTENCE_LENGTH,
         total_index_of_sentences, currentSentIndex,
     } from "./store.js";
 
@@ -16,13 +17,13 @@
         list_of_sentences.set([]);
         let currentSent: string[] = [];
         let currentSentLength = 0;
-        const SENTENCE_LENGTH = 15;
+
 
         for (const word of $phoneticSent.slice(0, $endWordIndex)) {
             const wordLength = word.length;
 
             // Check if adding this word would exceed the limit
-            if (currentSentLength + wordLength > SENTENCE_LENGTH) {
+            if (currentSentLength + wordLength > $SENTENCE_LENGTH) {
                 list_of_sentences.update(current => [...current, currentSent]);
                 currentSent = [];
                 currentSentLength = 0;
@@ -33,7 +34,7 @@
             currentSentLength += wordLength;
 
             // Handle exact length match
-            if (currentSentLength === SENTENCE_LENGTH) {
+            if (currentSentLength === $SENTENCE_LENGTH) {
                 list_of_sentences.update(current => [...current, currentSent]);
                 currentSent = [];
                 currentSentLength = 0;

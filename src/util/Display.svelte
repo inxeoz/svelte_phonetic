@@ -1,6 +1,6 @@
 <script lang="ts">
 
-    import {list_of_sentences, currentSentIndex, total_index_of_sentences, local_list_of_sentences, max_visible_sentence} from "./store.js"
+    import { local_list_of_sentences} from "./store.js"
     let neutral_color = ["#dda15e", "#ddbea9", "#b8b8ff", "#83c5be", "#a3b18a", "#f4acb7", "#ffcb69", "#cebebe"];
 
 

@@ -12,9 +12,9 @@ export const list_of_sentences = writable<string[][]>([])
 export const total_index_of_sentences = writable(0);
 export const currentSentIndex = writable(0);
 export const endWordIndex = writable(0);
-
+export const SENTENCE_LENGTH = writable(40);
 // export const local_list_of_sentences = writable<string[][]>([]);
-export const max_visible_sentence = writable(5);
+export const MAX_VISIBLE_SENTENCE = writable(5);
 
 export const dark_background_color = writable('#4a4c68');
 export const dark_second_background_color = writable('#9a8c98');
@@ -69,7 +69,7 @@ export function compareWritable<T>(
 
 // Derived store (auto-updates)
 export const local_list_of_sentences = derived(
-    [list_of_sentences, currentSentIndex, max_visible_sentence],
+    [list_of_sentences, currentSentIndex, MAX_VISIBLE_SENTENCE],
     ([$list, $current, $max]) => $list.slice($current, $current + $max)
 );
 

@@ -1,18 +1,18 @@
 
 <script lang="ts">
-    import {currentSentIndex, max_visible_sentence, total_index_of_sentences, list_of_sentences, local_list_of_sentences} from "./store";
+    import {currentSentIndex, total_index_of_sentences, list_of_sentences, local_list_of_sentences, MAX_VISIBLE_SENTENCE} from "./store";
 
 
 
     async function prev() {
-        let updated_current_sent_index= $currentSentIndex - $max_visible_sentence;
+        let updated_current_sent_index= $currentSentIndex - $MAX_VISIBLE_SENTENCE;
         if ( updated_current_sent_index >= 0) {
             currentSentIndex.set(updated_current_sent_index);
         }
     }
 
     async function next() {
-        let updated_current_sent_index= $currentSentIndex + $max_visible_sentence;
+        let updated_current_sent_index= $currentSentIndex + $MAX_VISIBLE_SENTENCE;
         if (updated_current_sent_index <  $total_index_of_sentences ) {
             currentSentIndex.set(updated_current_sent_index);
         }
