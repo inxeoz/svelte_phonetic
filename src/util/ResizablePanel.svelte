@@ -77,6 +77,7 @@
 
 <style>
     .resizable-panel {
+        container-type: inline-size;
         position: relative;
         background: #f2f2f2;
         overflow: hidden;

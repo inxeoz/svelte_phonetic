@@ -5,8 +5,9 @@
 
 <div style="height: 100vh; width: 100%;">
     <Resizable direction="horizontal">
+
         <ResizablePanel defaultSize={250}>
-            <div style="padding: 20px;">
+            <div class="test" style="padding: 20px;">
                 Sidebar Content
             </div>
         </ResizablePanel>
@@ -16,3 +17,27 @@
         </div>
     </Resizable>
 </div>
+
+
+<style>
+
+    /* Apply container queries to the resizable panel */
+    @container (min-width: 400px) {
+        .test {
+            background-color: #45ab30; /* Light background when width >= 400px */
+        }
+    }
+
+    @container (min-width: 600px) {
+        .test {
+            background-color: #123872; /* Change color when width >= 600px */
+        }
+    }
+
+    @container (min-width: 800px) {
+        .test {
+            background-color: #f25757; /* Darker background when width >= 800px */
+        }
+    }
+
+</style>
