@@ -48,7 +48,7 @@
 <div class="main global_border global_center_div">
     <Resizable direction="horizontal">
 <!--        default size needed-->
-        <ResizablePanel defaultSize={300} minSize={200}>
+        <ResizablePanel defaultSize={300} minSize={100}>
             <Sidebar/>
         </ResizablePanel>
 
