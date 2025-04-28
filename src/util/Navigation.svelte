@@ -26,5 +26,6 @@
         height: 70px;
         background-color: #735d78;
         color: white;
+        cursor: pointer;
     }
 </style>

@@ -60,7 +60,7 @@
         justify-content: center;
         align-items: center;
         color: var(--text-color);
-
+        cursor: pointer;
     }
 
     .top_bar {

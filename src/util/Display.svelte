@@ -46,6 +46,7 @@
         height: 100%;
         background-color: var(--neutral-color);
         padding: 0 20px;
+        cursor: pointer;
     }
 
 </style>
