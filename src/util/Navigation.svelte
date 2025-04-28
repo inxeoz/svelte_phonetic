@@ -1,16 +1,18 @@
 
 <script lang="ts">
-    import {currentSentIndex, total_index_of_sentences} from "./store";
+    import {currentSentIndex, max_visible_sentence, total_index_of_sentences} from "./store";
 
     async function prev() {
-        if ($currentSentIndex -1 >= 0) {
-            currentSentIndex.update(val => val - 1);
+        let updated_current_sent_index= $currentSentIndex - $max_visible_sentence;
+        if ( updated_current_sent_index >= 0) {
+            currentSentIndex.set(updated_current_sent_index);
         }
     }
 
     async function next() {
-        if ($currentSentIndex +1  <  $total_index_of_sentences ) {
-            currentSentIndex.update(val => val + 1);
+        let updated_current_sent_index= $currentSentIndex + $max_visible_sentence;
+        if (updated_current_sent_index<  $total_index_of_sentences ) {
+            currentSentIndex.set(updated_current_sent_index);
         }
     }
 </script>
