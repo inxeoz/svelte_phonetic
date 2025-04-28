@@ -1,6 +1,6 @@
 <script>
     import Theme from "./util/Theme.svelte";
-    import close_menu from "./assets/close_menu.svg";
+    // import close_menu from "./assets/close_menu.svg";
 
 </script>
 
@@ -9,10 +9,6 @@
     <div class="top_bar">
         <Theme/>
     </div>
-
-
-
-
 
     <div id="stories_bar" class="bar global_border global_font">
         <h2>
@@ -60,5 +56,24 @@
     .top_bar {
         display: flex;
         justify-content: space-between;
+    }
+
+    /* Apply container queries to the resizable panel */
+    @container (min-width: 100px) {
+        .sidebar {
+            background-color: #45ab30; /* Light background when width >= 400px */
+        }
+    }
+
+    @container (min-width: 200px) {
+        .sidebar {
+            background-color: #123872; /* Change color when width >= 600px */
+        }
+    }
+
+    @container (min-width: 300px) {
+        .sidebar {
+            background-color: #f25757; /* Darker background when width >= 800px */
+        }
     }
 </style>

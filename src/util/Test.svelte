@@ -22,19 +22,19 @@
 <style>
 
     /* Apply container queries to the resizable panel */
-    @container (min-width: 400px) {
+    @container (min-width: 100px) {
         .test {
             background-color: #45ab30; /* Light background when width >= 400px */
         }
     }
 
-    @container (min-width: 600px) {
+    @container (min-width: 200px) {
         .test {
             background-color: #123872; /* Change color when width >= 600px */
         }
     }
 
-    @container (min-width: 800px) {
+    @container (min-width: 300px) {
         .test {
             background-color: #f25757; /* Darker background when width >= 800px */
         }
