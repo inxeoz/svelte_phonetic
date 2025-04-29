@@ -37,27 +37,27 @@
         background: white;
         padding: 2rem;
         border-radius: 0.5rem;
-        min-width: 300px;
+        min-width: 18.75rem;
         text-align: center;
-        box-shadow: 0 0 20px rgba(0,0,0,0.3);
+        box-shadow: 0 0 1.25rem rgba(0,0,0,0.3);
         position: relative;
     }
 
     .overlay-content.error {
-        border: 2px solid red;
+        border: 0.125rem solid red;
         color: red;
     }
 
     .overlay-content.warning {
-        border: 2px solid #123872;
+        border:  0.125rem  solid #123872;
         color: #123872;
     }
 
     /* Close button styles */
     .close-btn {
         position: absolute;
-        top: 10px;
-        right: 10px;
+        top: 0.625rem;
+        right: 0.625rem;
         background: transparent;
         border: none;
         font-size: 1.5rem;

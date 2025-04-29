@@ -29,14 +29,14 @@
     .display_main {
         width: 100%;
         height: 100%;
-        padding: 40px 0;
+        padding: 2.5rem 0;
         flex-direction: column;
         justify-content: space-around;
     }
 
     .display_sent {
         width: 100%;
-        height: 60px;
+        height: 3.75rem;
         flex-direction: row;
         justify-content: space-around;
     }
@@ -45,7 +45,7 @@
         width: auto;
         height: 100%;
         background-color: var(--neutral-color);
-        padding: 0 20px;
+        padding: 0 1.25rem;
         cursor: pointer;
         color: #4a4e69;
     }

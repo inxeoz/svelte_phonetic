@@ -53,8 +53,8 @@
         flex-wrap: wrap;
     }
     .nav_button {
-        width: 150px;
-        height: 70px;
+        width: 9.375rem;
+        height: 4.375rem;
         background-color: #735d78;
         color: white;
         cursor: pointer;

@@ -46,8 +46,8 @@
 
 <style>
     .theme_main {
-        width: 150px;
-        height: 100px;
+        width: 9.375rem;
+        height: 6.25rem;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -55,9 +55,9 @@
 
     /* Root variables for easy control */
     :root {
-        --switch-width: 150px;
-        --switch-height: 50px;
-        --slider-size: 40px;
+        --switch-width: 9.375rem;
+        --switch-height: 3.125rem;
+        --slider-size: 2.5rem;
         --bg-night: #4a4c68;
         --bg-day: #f2df9c;
         --slider-color-night: #ffffff;
@@ -91,8 +91,8 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 40px;
-        height: 40px;
+        width: 2.5rem;
+        height: 2.5rem;
         border-radius: 50%;
         transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease;
     }

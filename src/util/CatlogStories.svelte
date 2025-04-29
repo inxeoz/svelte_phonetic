@@ -22,19 +22,19 @@
     .display_main {
         width:auto;
         height: auto;
-        padding: 40px 0;
+        padding: 2.5rem 0;
         justify-content: space-evenly;
         flex-wrap: wrap;
         flex-direction: row;
-        row-gap: 40px;
+        row-gap: 2.5rem;
     }
 
 
     .display_word {
-        width: 300px;
-        height: 200px;
+        width: 18.75rem;
+        height: 12.5rem;
         background-color: var(--neutral-color);
-        padding: 0 20px;
+        padding: 0 1.25rem;
         cursor: pointer;
         color: #4a4e69;
     }
