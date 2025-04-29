@@ -1,55 +1,59 @@
 <script lang="ts">
     export let icon: string | undefined = '';
-    export let direction = 'horizontal';
-    export let defaultSize = undefined; // Percentage (0-100)
-    export let minSize = 10; // Percentage
-    export let maxSize = 90; // Percentage
+    export let direction: 'horizontal' | 'vertical' = 'horizontal';
+    export let defaultSize: number | undefined = undefined; // REM value
+    export let minSize = 10; // REM
+    export let maxSize = 90; // REM
 
-    let sizePercent = defaultSize;
+    let sizeRem: number | undefined = defaultSize;
     let isDragging = false;
     let startPosition = 0;
     let startSize = 0;
-    let containerSize = 0;
-    let panelEl;
+    let containerSizeRem = 0;
+    let panelEl: HTMLDivElement;
 
-    function updateContainerSize() {
+    const pxToRem = (px: number): number => px / 16;
+
+    function updateContainerSize(): void {
         if (!panelEl?.parentElement) return;
         const parent = panelEl.parentElement;
-        containerSize = direction === 'horizontal'
+        const containerSizePx = direction === 'horizontal'
             ? parent.clientWidth
             : parent.clientHeight;
+        containerSizeRem = pxToRem(containerSizePx);
     }
 
-    function onMouseDown(event) {
-        if (sizePercent == null) {
+    function onMouseDown(event: MouseEvent): void {
+        if (sizeRem == null) {
             updateContainerSize();
             const rect = panelEl.getBoundingClientRect();
-            sizePercent = (direction === 'horizontal'
+            const currentSizePx = direction === 'horizontal'
                 ? rect.width
-                : rect.height) / containerSize * 100;
+                : rect.height;
+            sizeRem = pxToRem(currentSizePx);
         }
 
         isDragging = true;
         startPosition = direction === 'horizontal'
             ? event.clientX
             : event.clientY;
-        startSize = sizePercent;
+        startSize = sizeRem;
 
         window.addEventListener('mousemove', onMouseMove);
         window.addEventListener('mouseup', onMouseUp);
     }
 
-    function onMouseMove(event) {
+    function onMouseMove(event: MouseEvent): void {
         if (!isDragging) return;
         const currentPosition = direction === 'horizontal'
             ? event.clientX
             : event.clientY;
-        const delta = currentPosition - startPosition;
-        const deltaPercent = (delta / containerSize) * 100;
-        sizePercent = Math.min(Math.max(startSize + deltaPercent, minSize), maxSize);
+        const deltaPx = currentPosition - startPosition;
+        const deltaRem = pxToRem(deltaPx);
+        sizeRem = Math.min(Math.max(startSize + deltaRem, minSize), maxSize);
     }
 
-    function onMouseUp() {
+    function onMouseUp(): void {
         isDragging = false;
         window.removeEventListener('mousemove', onMouseMove);
         window.removeEventListener('mouseup', onMouseUp);
@@ -81,11 +85,11 @@
 <div
         bind:this={panelEl}
         class="resizable-panel"
-        style:width={direction === 'horizontal' && sizePercent !== undefined
-        ? `${sizePercent}%`
+        style:width={direction === 'horizontal' && sizeRem !== undefined
+        ? `${sizeRem}rem`
         : undefined}
-        style:height={direction === 'vertical' && sizePercent !== undefined
-        ? `${sizePercent}%`
+        style:height={direction === 'vertical' && sizeRem !== undefined
+        ? `${sizeRem}rem`
         : undefined}
 >
     <slot />
@@ -132,13 +136,13 @@
         justify-content: center;
         background: transparent;
         cursor: grab;
-        padding: 10px;
+        padding: 0.625rem; /* 10px → 0.625rem */
     }
 
     .resize-handle.horizontal {
         top: 0;
         right: 0;
-        width: 12px;
+        width: 0.75rem; /* 12px → 0.75rem */
         height: 100%;
         cursor: ew-resize;
     }
@@ -147,7 +151,7 @@
         bottom: 0;
         left: 0;
         width: 100%;
-        height: 12px;
+        height: 0.75rem; /* 12px → 0.75rem */
         cursor: ns-resize;
     }
 
@@ -155,12 +159,12 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 40px;
+        padding: 2.5rem; /* 40px → 2.5rem */
     }
 
     .custom-icon {
-        width: 16px;
-        height: 16px;
+        width: 1rem; /* 16px → 1rem */
+        height: 1rem;
         pointer-events: none;
     }
 </style>

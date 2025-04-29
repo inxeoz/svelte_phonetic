@@ -1,8 +1,6 @@
 <script>
     import Theme from "./util/Theme.svelte";
-    // import close_menu from "./assets/close_menu.svg";
-
-    import box from './assets/box.svg'
+   import box from './assets/box.svg'
 
 </script>
 
@@ -41,24 +39,23 @@
         width: auto;
         height: 100%;
         background: var(--sec-background-color);
-        padding: 20px 20px;
+        padding: 0.625rem;
         display: flex;
         flex-direction: column;
         justify-content: start;
-        row-gap: 20px;
+        row-gap: 0.625rem;
+        container-type: inline-size;
 
     }
 
     .bar {
-        width: auto;
-        height: 50px;
         background: var(--background-color);
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
         color: var(--text-color);
         cursor: pointer;
-        column-gap: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        column-gap: 0.625rem;
     }
     .icons {
         min-width: auto;
@@ -68,27 +65,16 @@
         display: flex;
         justify-content: space-around;
         align-items: center;
-        column-gap: 10px;
+        column-gap: 0.625rem;
     }
-
     .service_name {
         display: none;
     }
 
-    /* Apply container queries to the resizable panel */
-    @container (min-width: 100px) {
+    @container (min-width: 12rem) {
         .service_name {
-            display: none;
+            display: block;
         }
-    }
-
-    @container (min-width: 200px) {
-        .service_name {
-            display: contents;
-        }
-    }
-
-    @container (min-width: 300px) {
 
     }
 </style>

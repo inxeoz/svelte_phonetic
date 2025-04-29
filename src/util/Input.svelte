@@ -121,7 +121,7 @@
         height: auto;
         width: auto;
         flex-direction: row;
-        column-gap: 20px;
+        column-gap: 0.625rem;
         flex-wrap: wrap;
     }
 
@@ -132,19 +132,19 @@
         background: #ddb892;
         color: #8a6060;
         text-decoration: underline;
-        text-underline-offset: 10px;
+        text-underline-offset: 0.625rem;
         text-align: center;
-        padding: 20px;
-
+        padding: 1.25rem;
 
     }
 
 
     .convert_button {
-        width: 150px;
-        height: 60px;
+        width: auto;
+        height: auto;
         background: #e26d5c;
         color: white;
         cursor: pointer;
+        padding: 1rem;
     }
 </style>
