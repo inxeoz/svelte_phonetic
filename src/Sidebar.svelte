@@ -37,8 +37,6 @@
 
 <style>
 
-
-
     .sidebar {
         width: auto;
         height: 100%;

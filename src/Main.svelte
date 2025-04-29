@@ -44,17 +44,15 @@
             document.documentElement.style.setProperty('--text-color', $light_text_color);
   }
     }
+
+
 </script>
 
 <div class="main global_border global_center_div">
     <Resizable direction="horizontal">
-<!--        default size needed-->
-        <ResizablePanel defaultSize={300} minSize={100}>
+        <ResizablePanel defaultSize={20} minSize={10}>
             <Sidebar/>
         </ResizablePanel>
-
-<!--        <CatlogStories/>-->
-
         <MainContent/>
     </Resizable>
 
@@ -66,7 +64,7 @@
         height: 95vh;
         display: flex;
         flex-direction: row;
-        padding: 10px;
+        padding: 0.625rem;
         background: var(--background-color);
     }
     :root {
