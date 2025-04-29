@@ -71,10 +71,11 @@
         display: none;
     }
 
-    @container (min-width: 12rem) {
+    @container (width > 12rem) {
         .service_name {
             display: block;
         }
 
     }
+
 </style>

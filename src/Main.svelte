@@ -49,12 +49,13 @@
 </script>
 
 <div class="main global_border global_center_div">
-    <Resizable direction="horizontal">
-        <ResizablePanel defaultSize={20} minSize={10}>
-            <Sidebar/>
-        </ResizablePanel>
-        <MainContent/>
-    </Resizable>
+
+        <Resizable direction="horizontal">
+            <ResizablePanel defaultSize={20} minSize={10}>
+                <Sidebar/>
+            </ResizablePanel>
+            <MainContent/>
+        </Resizable>
 
 </div>
 <Overlay/>
@@ -69,6 +70,7 @@
     }
     :root {
         background: var(--background-color);
+
     }
 
 </style>

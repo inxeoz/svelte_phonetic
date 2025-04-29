@@ -16,7 +16,7 @@
     .main_content {
         width: 100%;
         height: auto;
-        padding: 10.625rem 1.25rem;
+        padding: 0.625rem 1.25rem;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
