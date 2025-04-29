@@ -18,6 +18,7 @@
     } from "./util/store.js";
     import Resizable from "./util/Resizable.svelte";
     import ResizablePanel from "./util/ResizablePanel.svelte";
+    import CatlogStories from "./util/CatlogStories.svelte";
 
     //checking browser setting
     const prefersDark = window.matchMedia &&
@@ -51,6 +52,8 @@
         <ResizablePanel defaultSize={300} minSize={100}>
             <Sidebar/>
         </ResizablePanel>
+
+<!--        <CatlogStories/>-->
 
         <MainContent/>
     </Resizable>
