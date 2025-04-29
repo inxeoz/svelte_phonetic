@@ -10,8 +10,6 @@
 
     <div class="top_bar">
         <Theme/>
-
-
         <h3 class="service_name">
             Phonetic
         </h3>
@@ -63,6 +61,9 @@
         color: var(--text-color);
         cursor: pointer;
         column-gap: 10px;
+    }
+    .icons {
+        min-width: auto;
     }
 
     .top_bar {

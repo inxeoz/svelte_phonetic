@@ -134,6 +134,7 @@
         text-decoration: underline;
         text-underline-offset: 10px;
         text-align: center;
+        padding: 20px;
 
 
     }
